@@ -39,7 +39,7 @@ function comprarGpu() {
                 alert("Podés comprarte la RTX 3090, precio : $" + precioRtx3090);
             }
         }
-        nuevaCompra = confirm("¿Deseas hacer una nueva compra?");
+        nuevaCompra = confirm("¿Deseas hacer una nueva compra?\n\n Aceptar --> Si \n Cancelar --> No");
     } while (nuevaCompra != false);
 }
 
