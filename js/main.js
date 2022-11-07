@@ -1,14 +1,32 @@
-//Programa que contiene una función que consulta el nombre del cliente, luego le pregunta su dinero disponible,
-//le pregunta si quiere factura (para calcular el IVA o no en el costo final) y en base a las entradas y a los precios
-//de las placas, le dice que puede comprar y que no, al final le consulta si quiere hacer una nueva compra o
-//si desea finalizar.
+//creo array productos
 
-let precioRtx3060 = 100000;
-let precioRtx3070 = 120000;
-let precioRtx3080 = 150000;
-let precioRtx3090 = 220000;
+const productos = [];
 
-function comprarGpu() {
+//creo constructor Producto
+
+class Producto {
+    constructor(id, name, price, stock) {
+        this.id = id
+        this.name = name
+        this.price = price
+        this.stock = stock
+    }
+}
+
+//creo cada producto a partir del constructor y los agrego al array
+
+const producto1 = new Producto(1, 'RTX 3060', 100000, 30);
+productos.push(producto1);
+const producto2 = new Producto(2, 'RTX 3070', 120000, 12);
+productos.push(producto2);
+const producto3 = new Producto(3, 'RTX 3080', 150000, 19);
+productos.push(producto3);
+const producto4 = new Producto(4, 'RTX 3090', 220000, 5);
+productos.push(producto4);
+
+//funcion que simula un carrito de compra
+
+function comprarGpu() {    
     let nuevaCompra;
     do {
         let nombreCliente = prompt("Ingresá tu nombre");
@@ -16,27 +34,27 @@ function comprarGpu() {
         let deseaFactura = confirm("¿Necesitás una Factura?\n\n Aceptar --> Si \n Cancelar --> No");
         if (deseaFactura == true) {
             if (dineroDisponible <= 120999) {
-                alert("No podes comprar nada, ya que la placa mas económica + IVA es la RTX 3060 y cuesta: $" + precioRtx3060 * 1.21);
+                alert("No podes comprar nada, ya que la placa mas económica + IVA es la " + producto1.name + " y cuesta: $" + producto1.price * 1.21);
             } else if (dineroDisponible <= 145199) {
-                alert("Podés comprarte la RTX 3060, precio final con IVA: $" + precioRtx3060 * 1.21);
+                alert("Podés comprarte la " + producto1.name + ", precio final con IVA: $" + producto1.price * 1.21);
             } else if (dineroDisponible <= 181499) {
-                alert("Podés comprarte la RTX 3070, precio final con IVA: $" + precioRtx3070 * 1.21);
+                alert("Podés comprarte la " + producto2.name + ", precio final con IVA: $" + producto2.price * 1.21);
             } else if (dineroDisponible <= 266199) {
-                alert("Podés comprarte la RTX 3080, precio final con IVA: $" + precioRtx3080 * 1.21);
+                alert("Podés comprarte la " + producto3.name + ", precio final con IVA: $" + producto3.price * 1.21);
             } else {
-                alert("Podés comprarte la RTX 3090, precio final con IVA: $" + precioRtx3090 * 1.21);
+                alert("Podés comprarte la " + producto4.name + ", precio final con IVA: $" + producto4.price * 1.21);
             }
         } else {
             if (dineroDisponible <= 99999) {
-                alert("No podes comprar nada, ya que la placa mas económica es la RTX 3060 y cuesta: $" + precioRtx3060);
+                alert("No podes comprar nada, ya que la placa mas económica es la " + producto1.name + " y cuesta: $" + producto1.price);
             } else if (dineroDisponible <= 119999) {
-                alert("Podés comprarte la RTX 3060, precio: $" + precioRtx3060);
+                alert("Podés comprarte la " + producto1.name + ", precio: $" + producto1.price);
             } else if (dineroDisponible <= 149999) {
-                alert("Podés comprarte la RTX 3070, precio: $" + precioRtx3070);
+                alert("Podés comprarte la " + producto2.name + ", precio: $" + producto2.price);
             } else if (dineroDisponible <= 219999) {
-                alert("Podés comprarte la RTX 3080, precio: $" + precioRtx3080);
+                alert("Podés comprarte la " + producto3.name + ", precio: $" + producto3.price);
             } else {
-                alert("Podés comprarte la RTX 3090, precio : $" + precioRtx3090);
+                alert("Podés comprarte la " + producto4.name + ", precio : $" + producto4.price);
             }
         }
         nuevaCompra = confirm("¿Deseas hacer una nueva compra?\n\n Aceptar --> Si \n Cancelar --> No");
@@ -44,3 +62,4 @@ function comprarGpu() {
 }
 
 comprarGpu();
+
