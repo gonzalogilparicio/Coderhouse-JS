@@ -26,7 +26,7 @@ productos.push(producto4);
 
 //prompt que pregunta si quiere hacer una busqueda o si quiere ejecutar el asistente
 
-let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
+let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 
 while (consultaModalidad != 3) {
     switch (consultaModalidad) {
@@ -42,7 +42,7 @@ while (consultaModalidad != 3) {
         default:
             break;
     }
-    consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1 o 2 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
+    consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1, 2 o 3 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 }
 alert("Gracias por tu visita!");
 
