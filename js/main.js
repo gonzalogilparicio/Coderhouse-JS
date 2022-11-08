@@ -64,7 +64,7 @@ function busquedaGpu() {
     if (nuevaBusqueda === false) {
         alert("Gracias por tu visita!"); {
             {
-                breakme
+                {breakme}
             }
         }
     }
@@ -108,7 +108,7 @@ function comprarGpu() {
     if (nuevaCompra === false) {
         alert("Gracias por tu visita!"); {
             {
-                breakme
+                {breakme}
             }
         }
     }
