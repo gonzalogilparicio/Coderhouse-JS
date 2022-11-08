@@ -26,9 +26,9 @@ productos.push(producto4);
 
 //prompt que pregunta si quiere hacer una busqueda o si quiere ejecutar el asistente
 
-let consultaModalidad = parseInt(prompt("¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas"));
+let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 
-while (consultaModalidad != 0) {
+while (consultaModalidad != 3) {
     switch (consultaModalidad) {
         case 1:
             busquedaGpu();
@@ -36,21 +36,24 @@ while (consultaModalidad != 0) {
         case 2:
             comprarGpu();
             break;
+        case 3:
+            alert("Gracias por tu visita!");
+            break;
         default:
             break;
     }
-    consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1 o 2 \n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas"));
+    consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1 o 2 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 }
 alert("Gracias por tu visita!");
 
-//funcion que simula un carrito de compra y busqueda de productos
+
+//funcion que hace busqueda de GPU sobre el array
 
 function busquedaGpu() {
     let nuevaBusqueda;
     do {
-        const busqueda = prompt("Ingresá la GPU que deseas buscar").toUpperCase();
+        const busqueda = prompt("Ingresá la GPU que deseas buscar \n Placas que trabajamos: \n RTX 2080 \n RTX 3060 \n RTX 3070 \n RTX 3080 \n RTX 3090 \n RTX 4090").toUpperCase();
         const resultado = productos.find(el => el.name === busqueda);
-        console.log(resultado);
         if (resultado == undefined) {
             alert("No tenemos esa GPU en stock en este momento");
         } else {
@@ -58,8 +61,16 @@ function busquedaGpu() {
         }
         nuevaBusqueda = confirm("¿Deseas hacer una nueva busqueda?\n\n Aceptar --> Si \n Cancelar --> No");
     } while (nuevaBusqueda != false);
-
+    if (nuevaBusqueda === false) {
+        alert("Gracias por tu visita!"); {
+            {
+                breakme
+            }
+        }
+    }
 }
+
+//funcion que hace de asistente para compra de GPU
 
 function comprarGpu() {
     let nuevaCompra;
@@ -94,4 +105,11 @@ function comprarGpu() {
         }
         nuevaCompra = confirm("¿Deseas hacer una nueva compra?\n\n Aceptar --> Si \n Cancelar --> No");
     } while (nuevaCompra != false);
+    if (nuevaCompra === false) {
+        alert("Gracias por tu visita!"); {
+            {
+                breakme
+            }
+        }
+    }
 }
