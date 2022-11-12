@@ -1,3 +1,6 @@
+//3ra entrega --- ya no se usa alert ni prompt, se hace mediante inputs y botones
+//agregar JSON, localStorage(meter y recuperar), manipulacion DOM y eventos
+
 //creo array productos
 
 const productos = [];
@@ -16,35 +19,30 @@ class Producto {
 //creo cada producto a partir del constructor y los agrego al array
 
 const producto1 = new Producto(1, 'RTX 3060', 100000, 30);
-productos.push(producto1);
 const producto2 = new Producto(2, 'RTX 3070', 120000, 12);
-productos.push(producto2);
 const producto3 = new Producto(3, 'RTX 3080', 150000, 19);
-productos.push(producto3);
 const producto4 = new Producto(4, 'RTX 3090', 220000, 5);
-productos.push(producto4);
+productos.push(producto1, producto2, producto3, producto4);
 
 //prompt que pregunta si quiere hacer una busqueda o si quiere ejecutar el asistente
 
-let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
+// let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 
-while (consultaModalidad != 3) {
-    switch (consultaModalidad) {
-        case 1:
-            busquedaGpu();
-            break;
-        case 2:
-            comprarGpu();
-            break;
-        case 3:
-            alert("Gracias por tu visita!");
-            break;
-        default:
-            break;
-    }
-    consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1, 2 o 3 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
-}
-alert("Gracias por tu visita!");
+// switch (consultaModalidad) {
+//     case 1:
+//         busquedaGpu();
+//         break;
+//     case 2:
+//         comprarGpu();
+//         break;
+//     case 3:
+//         alert("Gracias por tu visita!");
+//         break;
+//     default:
+//         break;
+// }
+
+// consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1, 2 o 3 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
 
 
 //funcion que hace busqueda de GPU sobre el array
@@ -62,11 +60,7 @@ function busquedaGpu() {
         nuevaBusqueda = confirm("¿Deseas hacer una nueva busqueda?\n\n Aceptar --> Si \n Cancelar --> No");
     } while (nuevaBusqueda != false);
     if (nuevaBusqueda === false) {
-        alert("Gracias por tu visita!"); {
-            {
-                {breakme}
-            }
-        }
+        alert("Gracias por tu visita!");
     }
 }
 
@@ -78,7 +72,7 @@ function comprarGpu() {
         let nombreCliente = prompt("Ingresá tu nombre");
         let dineroDisponible = parseInt(prompt(nombreCliente + ": Estás por comprar una placa de video \n Ingresá el dinero que tenés disponible"));
         let deseaFactura = confirm("¿Necesitás una Factura?\n\n Aceptar --> Si \n Cancelar --> No");
-        if (deseaFactura == true) {
+        if (deseaFactura) {
             if (dineroDisponible <= 120999) {
                 alert("No podes comprar nada, ya que la placa mas económica + IVA es la " + producto1.name + " y cuesta: $" + producto1.price * 1.21);
             } else if (dineroDisponible <= 145199) {
@@ -106,10 +100,6 @@ function comprarGpu() {
         nuevaCompra = confirm("¿Deseas hacer una nueva compra?\n\n Aceptar --> Si \n Cancelar --> No");
     } while (nuevaCompra != false);
     if (nuevaCompra === false) {
-        alert("Gracias por tu visita!"); {
-            {
-                {breakme}
-            }
-        }
+        alert("Gracias por tu visita!");
     }
 }
