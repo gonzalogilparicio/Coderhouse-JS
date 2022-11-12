@@ -88,6 +88,11 @@ ul {
     font-weight: 600;
     padding: 8px 20px;
     margin-block: 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.main__busqueda__form__button:hover {
+    background-color: rgb(220, 220, 220);
 }
 
 .main__busqueda__index {
@@ -140,15 +145,6 @@ p {
     margin: auto;
 }
 
-.main__asistente__form__button {
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px 20px;
-    margin-block: 10px;
-}
-
 .main__asistente__form__text {
     width: 220px;
     padding: 2px 8px;
@@ -156,6 +152,21 @@ p {
 
 .main__asistente__form__factura__checkbox {
     width: 15px !important;
+}
+
+.main__asistente__form__button {
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px 20px;
+    margin-block: 10px;
+    width: 100px !important;
+    transition: all 0.3s ease 0s;
+}
+
+.main__asistente__form__button:hover {
+    background-color: rgb(220, 220, 220);
 }
 
 .main__asistente__index {
