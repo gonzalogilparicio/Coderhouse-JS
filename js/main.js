@@ -24,43 +24,29 @@ const producto3 = new Producto(3, 'RTX 3080', 150000, 19);
 const producto4 = new Producto(4, 'RTX 3090', 220000, 5);
 productos.push(producto1, producto2, producto3, producto4);
 
-//prompt que pregunta si quiere hacer una busqueda o si quiere ejecutar el asistente
+//manipulacion DOM
 
-// let consultaModalidad = parseInt(prompt("¿Deseas buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
+const resultadoBusqueda = document.querySelector(".main__busqueda__resultado");
+const botonBusqueda = document.querySelector(".main__busqueda__form__button");
+const inputTextBusqueda = document.querySelector(".main__busqueda__form__text");
+const formularioBusqueda = document.querySelector(".main__busqueda__form");
 
-// switch (consultaModalidad) {
-//     case 1:
-//         busquedaGpu();
-//         break;
-//     case 2:
-//         comprarGpu();
-//         break;
-//     case 3:
-//         alert("Gracias por tu visita!");
-//         break;
-//     default:
-//         break;
-// }
+//eventos
 
-// consultaModalidad = parseInt(prompt("Opción incorrecta, ingresá 1, 2 o 3 \n\n ¿Desea buscar una GPU o ejecutar nuestro asistente de ventas? \n\n 1. Buscar \n 2. Asistente de ventas \n 3. Salir"));
-
+formularioBusqueda.onsubmit = (e) => {
+    e.preventDefault();
+    const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
+    busquedaGpu(inputBusqueda);
+}
 
 //funcion que hace busqueda de GPU sobre el array
 
-function busquedaGpu() {
-    let nuevaBusqueda;
-    do {
-        const busqueda = prompt("Ingresá la GPU que deseas buscar \n Placas que trabajamos: \n RTX 2080 \n RTX 3060 \n RTX 3070 \n RTX 3080 \n RTX 3090 \n RTX 4090").toUpperCase();
-        const resultado = productos.find(el => el.name === busqueda);
-        if (resultado == undefined) {
-            alert("No tenemos esa GPU en stock en este momento");
-        } else {
-            alert("Tenemos " + resultado.stock + " unidades en stock de la " + resultado.name + " con un valor de $" + resultado.price);
-        }
-        nuevaBusqueda = confirm("¿Deseas hacer una nueva busqueda?\n\n Aceptar --> Si \n Cancelar --> No");
-    } while (nuevaBusqueda != false);
-    if (nuevaBusqueda === false) {
-        alert("Gracias por tu visita!");
+function busquedaGpu(e) {
+    const resultado = productos.find(el => el.name === e);
+    if (resultado == undefined) {
+        resultadoBusqueda.innerHTML = '<p>No tenemos esa GPU en stock en este momento</p>'
+    } else {
+        resultadoBusqueda.innerHTML = '<p>Tenemos ' + resultado.stock + ' unidades en stock de la ' + resultado.name + ' con un valor de $' + resultado.price + '</p>';
     }
 }
 
