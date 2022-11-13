@@ -30,23 +30,36 @@ const resultadoBusqueda = document.querySelector(".main__busqueda__resultado");
 const botonBusqueda = document.querySelector(".main__busqueda__form__button");
 const inputTextBusqueda = document.querySelector(".main__busqueda__form__text");
 const formularioBusqueda = document.querySelector(".main__busqueda__form");
+const ultimaBusqueda = document.querySelector(".main__busqueda__ultimaBusqueda");
 
 //eventos
 
 formularioBusqueda.onsubmit = (e) => {
     e.preventDefault();
     const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
-    busquedaGpu(inputBusqueda);
+    busquedaGpu(inputBusqueda, inputTextBusqueda.value);
 }
 
-//funcion que hace busqueda de GPU sobre el array
+//funcion que hace busqueda de GPUs sobre el array, manipula dom, mete y recupera localStorage
+//y tambien convierte obj a json y viceversa
 
-function busquedaGpu(e) {
+function busquedaGpu(e, x) {
     const resultado = productos.find(el => el.name === e);
+    localStorage.setItem('resultadoBusqueda', x)
     if (resultado == undefined) {
-        resultadoBusqueda.innerHTML = '<p>No tenemos esa GPU en stock en este momento</p>'
+        resultadoBusqueda.innerHTML = '<p>No tenemos esa GPU en stock en este momento</p>';
+        localStorage.setItem('objetoEncontrado', 'Sin coincidencias');
     } else {
         resultadoBusqueda.innerHTML = '<p>Tenemos ' + resultado.stock + ' unidades en stock de la ' + resultado.name + ' con un valor de $' + resultado.price + '</p>';
+        const resultadoObjetoJson = JSON.stringify(resultado);
+        localStorage.setItem('objetoEncontrado', resultadoObjetoJson);
+        const infoStorageObjJson = JSON.parse(localStorage.getItem('objetoEncontrado'));
+        console.log(infoStorageObjJson);
+    }
+    for (let i = 0; i < localStorage.length; i++) {
+        const keyName = localStorage.key(i);
+        const keyValue = localStorage.getItem(keyName); //consultar esto de que keyvalue se pueda leer por fuera del for
+        ultimaBusqueda.innerHTML = '<p>Ultima busqueda realizada: ' + keyValue + '</p>'; //para sacar esto por fuera del for
     }
 }
 
