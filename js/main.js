@@ -59,7 +59,7 @@ function busquedaGpu(e, x) {
     for (let i = 0; i < localStorage.length; i++) {
         const keyName = localStorage.key(i);
         const keyValue = localStorage.getItem(keyName); //consultar esto de que keyvalue se pueda leer por fuera del for
-        ultimaBusqueda.innerHTML = '<p>Ultima busqueda realizada: ' + keyValue + '</p>'; //para sacar esto por fuera del for
+        ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>'; //para sacar esto por fuera del for
     }
 }
 
