@@ -1,6 +1,3 @@
-//3ra entrega --- ya no se usa alert ni prompt, se hace mediante inputs y botones
-//agregar JSON, localStorage(meter y recuperar), manipulacion DOM y eventos
-
 //creo array productos
 
 const productos = [];
@@ -27,10 +24,14 @@ productos.push(producto1, producto2, producto3, producto4);
 //manipulacion DOM
 
 const resultadoBusqueda = document.querySelector(".main__busqueda__resultado");
-const botonBusqueda = document.querySelector(".main__busqueda__form__button");
 const inputTextBusqueda = document.querySelector(".main__busqueda__form__text");
 const formularioBusqueda = document.querySelector(".main__busqueda__form");
 const ultimaBusqueda = document.querySelector(".main__busqueda__ultimaBusqueda");
+const formularioAsistente = document.querySelector(".main__asistente__form");
+const inputNombreAsistente = document.querySelector(".main__asistente__form__text__nombre");
+const inputDineroAsistente = document.querySelector(".main__asistente__form__number__dinero");
+const inputNecesitaFactura = document.querySelector(".main__asistente__form__factura__checkbox");
+const resultadoAsistente = document.querySelector(".main__asistente__resultado");
 
 //eventos
 
@@ -40,12 +41,25 @@ formularioBusqueda.onsubmit = (e) => {
     busquedaGpu(inputBusqueda, inputTextBusqueda.value);
 }
 
+formularioAsistente.onsubmit = (e) => {
+    e.preventDefault();
+    const inputNombre = inputNombreAsistente.value;
+    const arrayInputNombre = inputNombre.split(" "); //de aca a la linea 51 lo que hago es que cada palabra ingresada tenga su primer letra mayuscula
+    for (let i = 0; i < arrayInputNombre.length; i++) {
+        arrayInputNombre[i] = arrayInputNombre[i].charAt(0).toUpperCase() + arrayInputNombre[i].slice(1);
+    }
+    const inputNombreMayus = arrayInputNombre.join(" ");
+    const inputDinero = inputDineroAsistente.value;
+    const inputFactura = inputNecesitaFactura.checked;
+    comprarGpu(inputNombreMayus, inputDinero, inputFactura);
+}
+
 //funcion que hace busqueda de GPUs sobre el array, manipula dom, mete y recupera localStorage
 //y tambien convierte obj a json y viceversa
 
 function busquedaGpu(e, x) {
     const resultado = productos.find(el => el.name === e);
-    localStorage.setItem('resultadoBusqueda', x)
+    localStorage.setItem('ultimaBusqueda', x)
     if (resultado == undefined) {
         resultadoBusqueda.innerHTML = '<p>No tenemos esa GPU en stock en este momento</p>';
         localStorage.setItem('objetoEncontrado', 'Sin coincidencias');
@@ -56,49 +70,48 @@ function busquedaGpu(e, x) {
         const infoStorageObjJson = JSON.parse(localStorage.getItem('objetoEncontrado'));
         console.log(infoStorageObjJson);
     }
-    for (let i = 0; i < localStorage.length; i++) {
-        const keyName = localStorage.key(i);
-        const keyValue = localStorage.getItem(keyName); //consultar esto de que keyvalue se pueda leer por fuera del for
-        ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>'; //para sacar esto por fuera del for
-    }
+    const keyValue = localStorage.getItem('ultimaBusqueda');
+    ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
 }
 
 //funcion que hace de asistente para compra de GPU
 
-function comprarGpu() {
-    let nuevaCompra;
-    do {
-        let nombreCliente = prompt("Ingresá tu nombre");
-        let dineroDisponible = parseInt(prompt(nombreCliente + ": Estás por comprar una placa de video \n Ingresá el dinero que tenés disponible"));
-        let deseaFactura = confirm("¿Necesitás una Factura?\n\n Aceptar --> Si \n Cancelar --> No");
-        if (deseaFactura) {
-            if (dineroDisponible <= 120999) {
-                alert("No podes comprar nada, ya que la placa mas económica + IVA es la " + producto1.name + " y cuesta: $" + producto1.price * 1.21);
-            } else if (dineroDisponible <= 145199) {
-                alert("Podés comprarte la " + producto1.name + ", precio final con IVA: $" + producto1.price * 1.21);
-            } else if (dineroDisponible <= 181499) {
-                alert("Podés comprarte la " + producto2.name + ", precio final con IVA: $" + producto2.price * 1.21);
-            } else if (dineroDisponible <= 266199) {
-                alert("Podés comprarte la " + producto3.name + ", precio final con IVA: $" + producto3.price * 1.21);
-            } else {
-                alert("Podés comprarte la " + producto4.name + ", precio final con IVA: $" + producto4.price * 1.21);
-            }
+function comprarGpu(e, x, z) {
+    localStorage.setItem('nombreCliente', e);
+    localStorage.setItem('dineroDisponible', x);
+    if (z) {
+        if (x <= 120999) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": No podes comprar nada, ya que la placa mas económica + IVA es la " + producto1.name + " y cuesta: $" + producto1.price * 1.21;
+            localStorage.setItem('puedeComprar', 'No puede comprar nada');
+        } else if (x <= 145199) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto1.name + ", precio final con IVA: $" + producto1.price * 1.21;
+            localStorage.setItem('puedeComprar', producto1.name);
+        } else if (x <= 181499) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto2.name + ", precio final con IVA: $" + producto2.price * 1.21;
+            localStorage.setItem('puedeComprar', producto2.name);
+        } else if (x <= 266199) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto3.name + ", precio final con IVA: $" + producto3.price * 1.21;
+            localStorage.setItem('puedeComprar', producto3.name);
         } else {
-            if (dineroDisponible <= 99999) {
-                alert("No podes comprar nada, ya que la placa mas económica es la " + producto1.name + " y cuesta: $" + producto1.price);
-            } else if (dineroDisponible <= 119999) {
-                alert("Podés comprarte la " + producto1.name + ", precio: $" + producto1.price);
-            } else if (dineroDisponible <= 149999) {
-                alert("Podés comprarte la " + producto2.name + ", precio: $" + producto2.price);
-            } else if (dineroDisponible <= 219999) {
-                alert("Podés comprarte la " + producto3.name + ", precio: $" + producto3.price);
-            } else {
-                alert("Podés comprarte la " + producto4.name + ", precio : $" + producto4.price);
-            }
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto4.name + ", precio final con IVA: $" + producto4.price * 1.21;
+            localStorage.setItem('puedeComprar', producto4.name);
         }
-        nuevaCompra = confirm("¿Deseas hacer una nueva compra?\n\n Aceptar --> Si \n Cancelar --> No");
-    } while (nuevaCompra != false);
-    if (nuevaCompra === false) {
-        alert("Gracias por tu visita!");
+    } else {
+        if (x <= 99999) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": No podes comprar nada, ya que la placa mas económica es la " + producto1.name + " y cuesta: $" + producto1.price;
+            localStorage.setItem('puedeComprar', 'No puede comprar nada');
+        } else if (x <= 119999) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto1.name + ", precio: $" + producto1.price;
+            localStorage.setItem('puedeComprar', producto1.name);
+        } else if (x <= 149999) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto2.name + ", precio: $" + producto2.price;
+            localStorage.setItem('puedeComprar', producto2.name);
+        } else if (x <= 219999) {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto3.name + ", precio: $" + producto3.price;
+            localStorage.setItem('puedeComprar', producto3.name);
+        } else {
+            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto4.name + ", precio : $" + producto4.price;
+            localStorage.setItem('puedeComprar', producto4.name);
+        }
     }
 }

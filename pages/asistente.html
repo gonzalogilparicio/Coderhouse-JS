@@ -16,9 +16,9 @@
         <p>Ingresá los datos solicitados:</p>
         <form action="" class="main__asistente__form">
             <input type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre"
-                class="main__asistente__form__text">
-            <input type="text" name="dineroDisponible" id="dineroDisponible"
-                placeholder="Ingresá el dinero que tenés disponible" class="main__asistente__form__text">
+                class="main__asistente__form__text__nombre">
+            <input type="number" name="dineroDisponible" id="dineroDisponible"
+                placeholder="Ingresá el dinero que tenés disponible" class="main__asistente__form__number__dinero">
             <div class="main__asistente__form__factura">
                 <label for="deseaFactura">¿Necesitás factura?</label>
                 <input type="checkbox" name="deseaFactura" id="deseaFactura"
@@ -26,6 +26,7 @@
             </div>
             <input type="submit" value="Enviar" class="main__asistente__form__button">
         </form>
+        <div class="main__asistente__resultado"></div>
         <a href="../index.html" class="main__asistente__index">Volver al inicio</a>
     </main>
     <script src="../js/main.js"></script>

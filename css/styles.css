@@ -68,7 +68,7 @@ ul {
 }
 
 .main__busqueda__ultimaBusqueda {
-    margin-left: 700px;    
+    margin-left: 700px;
 }
 
 .main__busqueda__ultimaBusqueda p {
@@ -145,7 +145,7 @@ p {
 
 .main__asistente form input {
     margin-block: 10px;
-    width: 280px;
+    width: 300px;
 }
 
 .main__asistente__form input {
@@ -153,8 +153,11 @@ p {
     margin: auto;
 }
 
-.main__asistente__form__text {
-    width: 220px;
+.main__asistente__form__text__nombre {
+    padding: 2px 8px;
+}
+
+.main__asistente__form__number__dinero {
     padding: 2px 8px;
 }
 
