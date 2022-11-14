@@ -74,7 +74,7 @@ function busquedaGpu(e, x) {
     ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
 }
 
-//funcion que hace de asistente para compra de GPU
+//funcion que hace de asistente para compra de GPU, manipula DOM y mete localStorage
 
 function comprarGpu(e, x, z) {
     localStorage.setItem('nombreCliente', e);
