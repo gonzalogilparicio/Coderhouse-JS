@@ -11,7 +11,7 @@ const resultadoAsistente = document.querySelector(".main__asistente__resultado")
 formularioAsistente.onsubmit = (e) => {
     if (inputNombreAsistente.value == '' || inputDineroAsistente.value == '') {
         e.preventDefault();
-        resultadoAsistente.innerHTML = 'Por favor rellená todos los campos obligatorios';
+        resultadoAsistente.innerHTML = '<p>Por favor rellená todos los campos obligatorios</p>';
     } else {
         e.preventDefault();
         const inputNombre = inputNombreAsistente.value;
@@ -33,36 +33,36 @@ function comprarGpu(e, x, z) {
     localStorage.setItem('dineroDisponible', x);
     if (z) {
         if (x <= 120999) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": No podes comprar nada, ya que la placa mas económica + IVA es la " + producto1.name + " y cuesta: $" + producto1.price * 1.21;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': No podes comprar nada, ya que la placa mas económica + IVA es la ' + producto1.name + ' y cuesta: $' + producto1.price * 1.21 + '</p>';
             localStorage.setItem('puedeComprar', 'No puede comprar nada');
         } else if (x <= 145199) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto1.name + ", precio final con IVA: $" + producto1.price * 1.21;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto1.name + ', precio final con IVA: $' + producto1.price * 1.21 + '</p>';
             localStorage.setItem('puedeComprar', producto1.name);
         } else if (x <= 181499) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto2.name + ", precio final con IVA: $" + producto2.price * 1.21;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto2.name + ', precio final con IVA: $' + producto2.price * 1.21 + '</p>';
             localStorage.setItem('puedeComprar', producto2.name);
         } else if (x <= 266199) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto3.name + ", precio final con IVA: $" + producto3.price * 1.21;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto3.name + ', precio final con IVA: $' + producto3.price * 1.21 + '</p>';
             localStorage.setItem('puedeComprar', producto3.name);
         } else {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto4.name + ", precio final con IVA: $" + producto4.price * 1.21;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto4.name + ', precio final con IVA: $' + producto4.price * 1.21 + '</p>';
             localStorage.setItem('puedeComprar', producto4.name);
         }
     } else {
         if (x <= 99999) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": No podes comprar nada, ya que la placa mas económica es la " + producto1.name + " y cuesta: $" + producto1.price;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': No podes comprar nada, ya que la placa mas económica es la ' + producto1.name + ' y cuesta: $' + producto1.price + '</p>';
             localStorage.setItem('puedeComprar', 'No puede comprar nada');
         } else if (x <= 119999) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto1.name + ", precio: $" + producto1.price;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto1.name + ', precio: $' + producto1.price + '</p>';
             localStorage.setItem('puedeComprar', producto1.name);
         } else if (x <= 149999) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto2.name + ", precio: $" + producto2.price;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto2.name + ', precio: $' + producto2.price + '</p>';
             localStorage.setItem('puedeComprar', producto2.name);
         } else if (x <= 219999) {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto3.name + ", precio: $" + producto3.price;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto3.name + ', precio: $' + producto3.price + '</p>';
             localStorage.setItem('puedeComprar', producto3.name);
         } else {
-            resultadoAsistente.innerHTML = "Hola " + e + ": Podés comprarte la " + producto4.name + ", precio : $" + producto4.price;
+            resultadoAsistente.innerHTML = '<p>Hola ' + e + ': Podés comprarte la ' + producto4.name + ', precio: $' + producto4.price + '</p>';
             localStorage.setItem('puedeComprar', producto4.name);
         }
     }

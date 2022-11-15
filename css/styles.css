@@ -201,7 +201,7 @@ p {
     cursor: pointer;
     font-weight: 600;
     padding: 8px 20px;
-    margin-block: 10px;
+    margin-block: 30px !important;
     width: 100px !important;
     transition: all 0.3s ease 0s;
 }
@@ -211,6 +211,6 @@ p {
 }
 
 .main__asistente__index {
-    margin-top: 120px;
+    margin-top: 75px;
     font-size: 20px;
 }
