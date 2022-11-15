@@ -11,7 +11,7 @@ const resultadoAsistente = document.querySelector(".main__asistente__resultado")
 formularioAsistente.onsubmit = (e) => {
     if (inputNombreAsistente.value == '' || inputDineroAsistente.value == '') {
         e.preventDefault();
-        resultadoAsistente.innerHTML = 'Por favor rellená todos los campos obligatorios'
+        resultadoAsistente.innerHTML = 'Por favor rellená todos los campos obligatorios';
     } else {
         e.preventDefault();
         const inputNombre = inputNombreAsistente.value;
