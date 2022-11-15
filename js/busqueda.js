@@ -10,7 +10,7 @@ const ultimaBusqueda = document.querySelector(".main__busqueda__ultimaBusqueda")
 formularioBusqueda.onsubmit = (e) => {
     if (inputTextBusqueda.value == '') {
         e.preventDefault();
-        resultadoBusqueda.innerHTML = '<p>No ingresaste ninguna busqueda</p>';
+        resultadoBusqueda.innerHTML = '<p>No ingresaste ninguna búsqueda</p>';
     } else {
         e.preventDefault();
         const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
@@ -22,7 +22,7 @@ formularioBusqueda.onsubmit = (e) => {
 
 const keyValue = localStorage.getItem('ultimaBusqueda');
 if (keyValue !== null) {
-    ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
+    ultimaBusqueda.innerHTML = '<span>Ultima búsqueda realizada: ' + keyValue + '</span>';
 }
 
 //funcion que hace busqueda de GPUs sobre el array, manipula dom, mete y recupera localStorage
@@ -42,6 +42,6 @@ function busquedaGpu(e, x) {
         console.log(infoStorageObjJson);
     }
     const keyValue = localStorage.getItem('ultimaBusqueda');
-    ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
+    ultimaBusqueda.innerHTML = '<span>Ultima búsqueda realizada: ' + keyValue + '</span>';
     inputTextBusqueda.value = '';
 }

@@ -24,7 +24,6 @@ formularioAsistente.onsubmit = (e) => {
         const inputFactura = inputNecesitaFactura.checked;
         comprarGpu(inputNombreMayus, inputDinero, inputFactura);
     }
-
 }
 
 //funcion que hace de asistente para compra de GPU, manipula DOM y mete localStorage

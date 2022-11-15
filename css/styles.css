@@ -12,6 +12,26 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ----------------------------- color de fondo para todas las pag ----------------------------- */
+
+body {
+    background: linear-gradient(#12637E, #032845);
+    height: 100vh;
+}
+
+/* ----------------------------- color de fuente para todo ----------------------------- */
+
+h1,
+h2,
+h3,
+p,
+span,
+li,
+a,
+label {
+    color: white;
+}
+
 /* ----------------------------- index ----------------------------- */
 
 .main__index {
@@ -37,6 +57,10 @@ ul {
 
 .main__index ul li {
     margin-block: 10px;
+}
+
+.main__index ul li a {
+    font-size: 20px;
 }
 
 .main__index a:hover {
@@ -105,6 +129,7 @@ ul {
 
 .main__busqueda__index {
     margin-top: 50px;
+    font-size: 20px;
 }
 
 .main__busqueda__index:hover {
@@ -132,6 +157,7 @@ p {
 
 .main__asistente p {
     font-weight: 600;
+    font-size: 18px;
 }
 
 .main__asistente__form__factura {
@@ -151,6 +177,10 @@ p {
 .main__asistente__form input {
     display: block;
     margin: auto;
+}
+
+.main__asistente__form label {
+    font-size: 18px;
 }
 
 .main__asistente__form__text__nombre {
@@ -182,4 +212,5 @@ p {
 
 .main__asistente__index {
     margin-top: 120px;
+    font-size: 20px;
 }
