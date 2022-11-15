@@ -11,7 +11,7 @@ const resultadoAsistente = document.querySelector(".main__asistente__resultado")
 formularioAsistente.onsubmit = (e) => {
     e.preventDefault();
     const inputNombre = inputNombreAsistente.value;
-    const arrayInputNombre = inputNombre.split(" "); //de aca a la linea 51 lo que hago es que cada palabra ingresada tenga su primer letra mayuscula
+    const arrayInputNombre = inputNombre.split(" "); //de aca a la linea 18 lo que hago es que cada palabra ingresada tenga su primer letra mayuscula
     for (let i = 0; i < arrayInputNombre.length; i++) {
         arrayInputNombre[i] = arrayInputNombre[i].charAt(0).toUpperCase() + arrayInputNombre[i].slice(1);
     }

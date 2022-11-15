@@ -13,6 +13,15 @@ formularioBusqueda.onsubmit = (e) => {
     busquedaGpu(inputBusqueda, inputTextBusqueda.value);
 }
 
+//si ultimaBusqueda está en el localStorage, lo sigue renderizando
+
+const keyValue = localStorage.getItem('ultimaBusqueda');
+if (keyValue == null) {
+    ultimaBusqueda.innerHTML = '<span></span>';
+} else {
+    ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
+}
+
 //funcion que hace busqueda de GPUs sobre el array, manipula dom, mete y recupera localStorage
 //y tambien convierte obj a json y viceversa
 
