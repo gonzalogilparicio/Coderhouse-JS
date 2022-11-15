@@ -9,16 +9,22 @@ const resultadoAsistente = document.querySelector(".main__asistente__resultado")
 //eventos
 
 formularioAsistente.onsubmit = (e) => {
-    e.preventDefault();
-    const inputNombre = inputNombreAsistente.value;
-    const arrayInputNombre = inputNombre.split(" "); //de aca a la linea 18 lo que hago es que cada palabra ingresada tenga su primer letra mayuscula
-    for (let i = 0; i < arrayInputNombre.length; i++) {
-        arrayInputNombre[i] = arrayInputNombre[i].charAt(0).toUpperCase() + arrayInputNombre[i].slice(1);
+    if (inputNombreAsistente.value == '' || inputDineroAsistente.value == '') {
+        e.preventDefault();
+        resultadoAsistente.innerHTML = 'Por favor rellená todos los campos obligatorios'
+    } else {
+        e.preventDefault();
+        const inputNombre = inputNombreAsistente.value;
+        const arrayInputNombre = inputNombre.split(" "); //de aca a la linea 18 lo que hace es que cada palabra ingresada tenga su primer letra mayuscula
+        for (let i = 0; i < arrayInputNombre.length; i++) {
+            arrayInputNombre[i] = arrayInputNombre[i].charAt(0).toUpperCase() + arrayInputNombre[i].slice(1);
+        }
+        const inputNombreMayus = arrayInputNombre.join(" ");
+        const inputDinero = inputDineroAsistente.value;
+        const inputFactura = inputNecesitaFactura.checked;
+        comprarGpu(inputNombreMayus, inputDinero, inputFactura);
     }
-    const inputNombreMayus = arrayInputNombre.join(" ");
-    const inputDinero = inputDineroAsistente.value;
-    const inputFactura = inputNecesitaFactura.checked;
-    comprarGpu(inputNombreMayus, inputDinero, inputFactura);
+
 }
 
 //funcion que hace de asistente para compra de GPU, manipula DOM y mete localStorage
@@ -61,4 +67,7 @@ function comprarGpu(e, x, z) {
             localStorage.setItem('puedeComprar', producto4.name);
         }
     }
+    inputNombreAsistente.value = '';
+    inputDineroAsistente.value = '';
+    inputNecesitaFactura.checked = false;
 }

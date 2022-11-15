@@ -8,17 +8,20 @@ const ultimaBusqueda = document.querySelector(".main__busqueda__ultimaBusqueda")
 //eventos
 
 formularioBusqueda.onsubmit = (e) => {
-    e.preventDefault();
-    const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
-    busquedaGpu(inputBusqueda, inputTextBusqueda.value);
+    if (inputTextBusqueda.value == '') {
+        e.preventDefault();
+        resultadoBusqueda.innerHTML = '<p>No ingresaste ninguna busqueda</p>';
+    } else {
+        e.preventDefault();
+        const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
+        busquedaGpu(inputBusqueda, inputTextBusqueda.value);
+    }
 }
 
 //si ultimaBusqueda está en el localStorage, lo sigue renderizando
 
 const keyValue = localStorage.getItem('ultimaBusqueda');
-if (keyValue == null) {
-    ultimaBusqueda.innerHTML = '<span></span>';
-} else {
+if (keyValue !== null) {
     ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
 }
 
@@ -40,4 +43,5 @@ function busquedaGpu(e, x) {
     }
     const keyValue = localStorage.getItem('ultimaBusqueda');
     ultimaBusqueda.innerHTML = '<span>Ultima busqueda realizada: ' + keyValue + '</span>';
+    inputTextBusqueda.value = '';
 }
