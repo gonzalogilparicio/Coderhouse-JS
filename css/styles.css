@@ -127,6 +127,10 @@ ul {
     background-color: rgb(220, 220, 220);
 }
 
+.main__busqueda__objetoEncontradoRender {
+    margin-right: 700px;
+}
+
 .main__busqueda__index {
     margin-top: 50px;
     font-size: 20px;

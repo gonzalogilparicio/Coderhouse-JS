@@ -4,6 +4,7 @@ const resultadoBusqueda = document.querySelector(".main__busqueda__resultado");
 const inputTextBusqueda = document.querySelector(".main__busqueda__form__text");
 const formularioBusqueda = document.querySelector(".main__busqueda__form");
 const ultimaBusqueda = document.querySelector(".main__busqueda__ultimaBusqueda");
+const objetoEncontradoRender = document.querySelector(".main__busqueda__objetoEncontradoRender");
 
 //eventos
 
@@ -39,7 +40,7 @@ function busquedaGpu(e, x) {
         const resultadoObjetoJson = JSON.stringify(resultado);
         localStorage.setItem('objetoEncontrado', resultadoObjetoJson);
         const infoStorageObjJson = JSON.parse(localStorage.getItem('objetoEncontrado'));
-        console.log(infoStorageObjJson);
+        objetoEncontradoRender.innerHTML = '<p>Objeto encontrado: ' + infoStorageObjJson.name + ' con número de ID: ' + infoStorageObjJson.id + '</p>';
     }
     const keyValue = localStorage.getItem('ultimaBusqueda');
     ultimaBusqueda.innerHTML = '<span>Ultima búsqueda realizada: ' + keyValue + '</span>';
