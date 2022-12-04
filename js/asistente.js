@@ -11,7 +11,17 @@ const resultadoAsistente = document.querySelector(".main__asistente__resultado")
 formularioAsistente.onsubmit = (e) => {
     if (inputNombreAsistente.value == '' || inputDineroAsistente.value == '') {
         e.preventDefault();
-        resultadoAsistente.innerHTML = '<p>Por favor rellená todos los campos obligatorios</p>';
+        Toastify({
+            text: "Por favor rellená todos los campos obligatorios",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+        }).showToast();
     } else {
         e.preventDefault();
         const inputNombre = inputNombreAsistente.value;

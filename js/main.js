@@ -1,3 +1,11 @@
+//agregar para el proyecto final
+//AJAX, Librerias, Promises, Asincronia, Fetch
+//Se puede usar una API o datos estáticos
+//Sintaxis avanzada
+
+
+
+
 //creo array productos
 
 const productos = [];
