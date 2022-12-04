@@ -11,7 +11,17 @@ const objetoEncontradoRender = document.querySelector(".main__busqueda__objetoEn
 formularioBusqueda.onsubmit = (e) => {
     if (inputTextBusqueda.value == '') {
         e.preventDefault();
-        resultadoBusqueda.innerHTML = '<p>No ingresaste ninguna búsqueda</p>';
+        Toastify({
+            text: "No ingresaste ninguna búsqueda",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+        }).showToast();
     } else {
         e.preventDefault();
         const inputBusqueda = (inputTextBusqueda.value).toUpperCase();
