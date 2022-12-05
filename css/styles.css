@@ -237,7 +237,15 @@ p {
     margin-top: 40px;
 }
 
+.main__listarproductos h2 {
+    margin-bottom: 60px;
+}
+
+.main__listarproductos__ul li {
+    margin-bottom: 6px;
+}
+
 .main__listarproductos__index {
-    margin-top: 75px;
+    margin-top: 40px;
     font-size: 20px;
 }
