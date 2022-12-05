@@ -236,3 +236,8 @@ p {
 .main__listarproductos h1 {
     margin-top: 40px;
 }
+
+.main__listarproductos__index {
+    margin-top: 75px;
+    font-size: 20px;
+}
