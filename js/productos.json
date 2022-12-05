@@ -1,0 +1,12 @@
+[
+    {"id": 1, "name": "GTX 1660", "price": 84000, "stock": 0},
+    {"id": 2, "name": "RTX 3050", "price": 95000, "stock": 0},
+    {"id": 3, "name": "RTX 2060 Super", "price": 100000, "stock": 12},
+    {"id": 4, "name": "RTX 3060 Ti", "price": 130000, "stock": 1},
+    {"id": 5, "name": "RTX 3070", "price": 135000, "stock": 56},
+    {"id": 6, "name": "RTX 3070 Dual OC", "price": 142000, "stock": 23},
+    {"id": 7, "name": "RTX 3070 Ti", "price": 155000, "stock": 0},
+    {"id": 8, "name": "RTX 3080", "price": 200000, "stock": 14},
+    {"id": 9, "name": "RTX 3080 Ventus", "price": 230000, "stock": 4},
+    {"id": 10, "name": "RTX 3090", "price": 300000, "stock": 0}      
+]
